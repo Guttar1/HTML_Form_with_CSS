@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="author" content="Roman Pankov" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Results</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body id="page-results">
+  <header class="topbar">
+    <div class="wrap">
+      <h1>Results</h1>
+      <p class="sub">Displayed using the “barbaric” query-string approach (GET).</p>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="card">
+      <div class="results-head">
+        <h2>Your Submitted Data</h2>
+        <a class="link-btn" href="index.html">← Back to Form</a>
+      </div>
+
+      <div id="resultsGrid" class="results-grid">
+        <!-- JS fills this -->
+      </div>
+
+      <div class="divider"></div>
+
+      <h3>Raw Query String</h3>
+      <pre id="raw" class="codebox"></pre>
+
+      <p class="note">
+        This is intentionally simple. Later you’ll do better “prompt building” / structured output.
+      </p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <small><a href="index.html">Back to index.html</a></small>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
