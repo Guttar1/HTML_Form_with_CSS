@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="author" content="Roman Pankov" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HTML Form with CSS</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body id="page-form">
+  <header class="topbar">
+    <div class="wrap">
+      <h1>Styled HTML Form</h1>
+      <p class="sub">Module 9 form fields + CSS layout. Results are displayed “barbarically” via query string.</p>
+    </div>
+  </header>
+
+  <main class="wrap grid-2">
+    <section class="card">
+      <h2>Fill Out the Form</h2>
+
+      <!-- Barbaric method: send inputs to results.html via GET -->
+      <form id="userForm" action="results.html" method="GET">
+        <div class="form-grid">
+
+          <!-- Text -->
+          <div class="field">
+            <label for="fullName">Full Name *</label>
+            <input id="fullName" name="fullName" type="text" placeholder="Jane Doe" required />
+            <small class="hint">Required</small>
+          </div>
+
+          <!-- Email -->
+          <div class="field">
+            <label for="email">Email *</label>
+            <input id="email" name="email" type="email" placeholder="jane@email.com" required />
+            <small class="hint">Required</small>
+          </div>
+
+          <!-- Password -->
+          <div class="field">
+            <label for="password">Password *</label>
+            <input id="password" name="password" type="password" minlength="6" placeholder="Minimum 6 characters" required />
+            <small class="hint">Required (demo only)</small>
+          </div>
+
+          <!-- Tel -->
+          <div class="field">
+            <label for="phone">Phone</label>
+            <input id="phone" name="phone" type="tel" placeholder="(555) 123-4567" />
+          </div>
+
+          <!-- URL -->
+          <div class="field">
+            <label for="website">Website</label>
+            <input id="website" name="website" type="url" placeholder="https://example.com" />
+          </div>
+
+          <!-- Number -->
+          <div class="field">
+            <label for="age">Age</label>
+            <input id="age" name="age" type="number" min="0" max="120" placeholder="18" />
+          </div>
+
+          <!-- Date -->
+          <div class="field">
+            <label for="birthDate">Birth Date</label>
+            <input id="birthDate" name="birthDate" type="date" />
+          </div>
+
+          <!-- Time -->
+          <div class="field">
+            <label for="apptTime">Preferred Time</label>
+            <input id="apptTime" name="apptTime" type="time" />
+          </div>
+
+          <!-- datetime-local -->
+          <div class="field">
+            <label for="meeting">Meeting (Date/Time)</label>
+            <input id="meeting" name="meeting" type="datetime-local" />
+          </div>
+
+          <!-- Month -->
+          <div class="field">
+            <label for="startMonth">Start Month</label>
+            <input id="startMonth" name="startMonth" type="month" />
+          </div>
+
+          <!-- Week -->
+          <div class="field">
+            <label for="week">Week of Year</label>
+            <input id="week" name="week" type="week" />
+          </div>
+
+          <!-- Color -->
+          <div class="field">
+            <label for="favColor">Favorite Color</label>
+            <input id="favColor" name="favColor" type="color" value="#3b82f6" />
+          </div>
+
+          <!-- Range -->
+          <div class="field span-2">
+            <label for="confidence">Confidence (0–10)</label>
+            <input id="confidence" name="confidence" type="range" min="0" max="10" value="5" />
+            <div class="range-row">
+              <span>0</span>
+              <span id="rangeValue" class="pill">5</span>
+              <span>10</span>
+            </div>
+          </div>
+
+          <!-- Select -->
+          <div class="field">
+            <label for="role">Role *</label>
+            <select id="role" name="role" required>
+              <option value="" selected disabled>Choose one…</option>
+              <option value="student">Student</option>
+              <option value="job-seeker">Job Seeker</option>
+              <option value="developer">Developer</option>
+              <option value="other">Other</option>
+            </select>
+            <small class="hint">Required</small>
+          </div>
+
+          <!-- Datalist -->
+          <div class="field">
+            <label for="browser">Favorite Browser (datalist)</label>
+            <input id="browser" name="browser" list="browsers" placeholder="Type or pick..." />
+            <datalist id="browsers">
+              <option value="Chrome"></option>
+              <option value="Firefox"></option>
+              <option value="Edge"></option>
+              <option value="Safari"></option>
+              <option value="Opera"></option>
+            </datalist>
+          </div>
+
+          <!-- Radio -->
+          <fieldset class="field">
+            <legend>Preferred Contact *</legend>
+            <div class="options">
+              <label class="opt"><input type="radio" name="contact" value="email" required /> Email</label>
+              <label class="opt"><input type="radio" name="contact" value="phone" /> Phone</label>
+              <label class="opt"><input type="radio" name="contact" value="text" /> Text</label>
+            </div>
+            <small class="hint">Required</small>
+          </fieldset>
+
+          <!-- Checkbox -->
+          <fieldset class="field">
+            <legend>Interests</legend>
+            <div class="options">
+              <label class="opt"><input type="checkbox" name="interests" value="web" /> Web</label>
+              <label class="opt"><input type="checkbox" name="interests" value="games" /> Games</label>
+              <label class="opt"><input type="checkbox" name="interests" value="networking" /> Networking</label>
+              <label class="opt"><input type="checkbox" name="interests" value="sql" /> SQL</label>
+            </div>
+          </fieldset>
+
+          <!-- File (won’t submit via GET, but included as a field) -->
+          <div class="field span-2">
+            <label for="resume">Upload File (field included)</label>
+            <input id="resume" name="resume" type="file" />
+            <small class="hint">Included to cover file input. (Browsers do not send file via GET.)</small>
+          </div>
+
+          <!-- Textarea -->
+          <div class="field span-2">
+            <label for="about">About You</label>
+            <textarea id="about" name="about" rows="4" placeholder="A few sentences..."></textarea>
+          </div>
+
+          <!-- Hidden -->
+          <input type="hidden" name="source" value="Module9Form" />
+
+        </div>
+
+        <div class="actions">
+          <button type="submit">Submit → Results</button>
+          <button type="reset" class="btn-secondary">Reset</button>
+        </div>
+
+        <p class="note">
+          After submit, you’ll land on <strong>results.html</strong>. That page links back to <strong>index.html</strong>.
+        </p>
+      </form>
+    </section>
+
+    <aside class="card info">
+      <h2>Checklist</h2>
+      <ul class="check">
+        <li>All form fields included</li>
+        <li>CSS grid layout (not vertically stacked)</li>
+        <li>No “default” look (colors, fonts, links, backgrounds)</li>
+        <li>Results shown on results.html</li>
+        <li>Link back to index.html on results.html</li>
+      </ul>
+      <div class="tip">
+        <strong>Important:</strong> GitHub Pages grading often expects <code>index.html</code>.
+        That’s why you keep both <code>index.htm</code> and <code>index.html</code>.
+      </div>
+    </aside>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <small>HTML_Form_with_CSS — DEV109 Coding Exercise</small>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
